@@ -592,7 +592,7 @@ void ScoreSheetScene::onNameButton(cocos2d::Ref *, size_t idx) {
 static const char *s_wind[] = { "东", "南", "西", "北" };
 
 void ScoreSheetScene::editName(size_t idx) {
-    ui::EditBox *editBox = ui::EditBox::create(Size(120.0f, 20.0f), ui::Scale9Sprite::create("source_material/btn_square_normal.png"));
+    ui::EditBox *editBox = UICommon::createEditBox(Size(120.0f, 20.0f));
     editBox->setInputMode(ui::EditBox::InputMode::SINGLE_LINE);
     editBox->setInputFlag(ui::EditBox::InputFlag::SENSITIVE);
     editBox->setReturnType(ui::EditBox::KeyboardReturnType::DONE);
@@ -702,7 +702,7 @@ void ScoreSheetScene::editNameAllAtOnce(size_t idx) {
         label->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
         label->setPosition(Vec2(5.0f, yPos));
 
-        ui::EditBox *editBox = ui::EditBox::create(Size(120.0f, 20.0f), ui::Scale9Sprite::create("source_material/btn_square_normal.png"));
+        ui::EditBox *editBox = UICommon::createEditBox(Size(120.0f, 20.0f));
         editBox->setInputMode(ui::EditBox::InputMode::SINGLE_LINE);
         editBox->setInputFlag(ui::EditBox::InputFlag::SENSITIVE);
         editBox->setReturnType(ui::EditBox::KeyboardReturnType::NEXT);
@@ -1334,7 +1334,7 @@ void ScoreSheetScene::onPursuitButton(cocos2d::Ref *) {
     }
 
     // 自定义分差输入
-    ui::EditBox *editBox = ui::EditBox::create(Size(120.0f, 20.0f), ui::Scale9Sprite::create("source_material/btn_square_normal.png"));
+    ui::EditBox *editBox = UICommon::createEditBox(Size(120.0f, 20.0f));
     editBox->setInputFlag(ui::EditBox::InputFlag::SENSITIVE);
     editBox->setInputMode(ui::EditBox::InputMode::NUMERIC);
     editBox->setReturnType(ui::EditBox::KeyboardReturnType::DONE);

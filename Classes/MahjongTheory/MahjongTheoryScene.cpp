@@ -24,7 +24,7 @@ bool MahjongTheoryScene::init() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     // 输入框
-    ui::EditBox *editBox= ui::EditBox::create(Size(visibleSize.width - 95.0f, 20.0f), ui::Scale9Sprite::create("source_material/btn_square_normal.png"));
+    ui::EditBox *editBox = UICommon::createEditBox(Size(visibleSize.width - 95.0f, 20.0f));
     this->addChild(editBox);
     editBox->setInputFlag(ui::EditBox::InputFlag::SENSITIVE);
     editBox->setInputMode(ui::EditBox::InputMode::SINGLE_LINE);

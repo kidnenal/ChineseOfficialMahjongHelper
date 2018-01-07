@@ -160,7 +160,7 @@ bool RecordScene::initWithIndex(size_t handIdx, const PlayerNames &names, const 
 
     float yPos = origin.y + visibleSize.height - 45.0f;
     // 番数输入框
-    ui::EditBox *editBox = ui::EditBox::create(Size(35.0f, 20.0f), ui::Scale9Sprite::create("source_material/btn_square_normal.png"));
+    ui::EditBox *editBox = UICommon::createEditBox(Size(35.0f, 20.0f));
     this->addChild(editBox);
     editBox->setInputFlag(ui::EditBox::InputFlag::SENSITIVE);
     editBox->setInputMode(ui::EditBox::InputMode::NUMERIC);

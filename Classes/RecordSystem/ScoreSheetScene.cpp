@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iterator>
 #include "../mahjong-algorithm/stringify.h"
+#include "UICommon.h"
 #include "../widget/AlertDialog.h"
 #include "../widget/Toast.h"
 #include "../widget/HandTilesWidget.h"
@@ -57,7 +58,7 @@ bool ScoreSheetScene::initWithRecord(Record *record) {
 
     ui::Button *topButtons[4];
     for (int i = 0; i < 4; ++i) {
-        ui::Button *button = ui::Button::create("source_material/btn_square_highlighted.png", "source_material/btn_square_selected.png");
+        ui::Button *button = UICommon::createButton();
         this->addChild(button);
         button->setScale9Enabled(true);
         button->setContentSize(Size(55.0f, 20.0f));
@@ -134,7 +135,7 @@ bool ScoreSheetScene::initWithRecord(Record *record) {
         _nameLabel[i] = label;
     }
 
-    ui::Button *button = ui::Button::create("source_material/btn_square_highlighted.png", "source_material/btn_square_selected.png");
+    ui::Button *button = UICommon::createButton();
     node->addChild(button, -1);
     button->setScale9Enabled(true);
     button->setContentSize(Size(gap, cellHeight));
@@ -229,7 +230,7 @@ bool ScoreSheetScene::initWithRecord(Record *record) {
         }
 
         // 计分按钮
-        ui::Button *button = ui::Button::create("source_material/btn_square_highlighted.png", "source_material/btn_square_selected.png");
+        ui::Button *button = UICommon::createButton();
         node->addChild(button, -1);
         button->setScale9Enabled(true);
         button->setContentSize(Size(gap, cellHeight));
@@ -682,7 +683,7 @@ void ScoreSheetScene::editNameAllAtOnce(size_t idx) {
     Node *rootNode = Node::create();
     rootNode->setContentSize(Size(150.0f, 120.0f));
 
-    ui::Button *button = ui::Button::create("source_material/btn_square_highlighted.png", "source_material/btn_square_selected.png");
+    ui::Button *button = UICommon::createButton();
     rootNode->addChild(button);
     button->setScale9Enabled(true);
     button->setContentSize(Size(55.0f, 20.0f));
@@ -1108,7 +1109,7 @@ void ScoreSheetScene::onResetButton(cocos2d::Ref *) {
     ui::RadioButtonGroup *radioGroup = ui::RadioButtonGroup::create();
     rootNode->addChild(radioGroup);
 
-    ui::RadioButton *radioButton = ui::RadioButton::create("source_material/btn_square_normal.png", "source_material/btn_square_highlighted.png");
+    ui::RadioButton *radioButton = UICommon::createRadioButton();
     radioButton->setZoomScale(0.0f);
     radioButton->ignoreContentAdaptWithSize(false);
     radioButton->setContentSize(Size(20.0f, 20.0f));
@@ -1123,7 +1124,7 @@ void ScoreSheetScene::onResetButton(cocos2d::Ref *) {
     radioButton->addChild(label);
     label->setPosition(Vec2(25.0f, 10.0f));
 
-    radioButton = ui::RadioButton::create("source_material/btn_square_normal.png", "source_material/btn_square_highlighted.png");
+    radioButton = UICommon::createRadioButton();
     radioButton->setZoomScale(0.0f);
     radioButton->ignoreContentAdaptWithSize(false);
     radioButton->setContentSize(Size(20.0f, 20.0f));
@@ -1386,7 +1387,7 @@ void ScoreSheetScene::onScoreButton(cocos2d::Ref *, size_t idx) {
         size_t dst = cmpIdx[idx][i];
         int delta = _totalScores[idx] - _totalScores[dst];
 
-        ui::Button *button = ui::Button::create("source_material/btn_square_selected.png", "source_material/btn_square_highlighted.png");
+        ui::Button *button = UICommon::createButton();
         button->setScale9Enabled(true);
         button->setContentSize(Size(150.0f, 20.0f));
         button->setTitleFontSize(12);
